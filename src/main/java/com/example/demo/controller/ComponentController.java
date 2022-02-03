@@ -9,17 +9,20 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.entity.Component;
 import com.example.demo.entity.Product;
+import com.example.demo.service.ComponentService;
 import com.example.demo.service.ManufacturerService;
 
 @RestController
-public class ManufactureController {
+public class ComponentController {
 	@Autowired
-	ManufacturerService manufacturerService;
+	ComponentService componentService;
 	
-	@PostMapping("/product")
+	@PostMapping("/component")
 	@ResponseStatus(code = HttpStatus.CREATED)
-	void createProduct(@RequestBody @Valid Product product) {
-		manufacturerService.saveProduct(product);
+	void createComponent(@RequestBody @Valid Component component) {
+		componentService.saveComponent(component);
 	}
+
 }
